@@ -11,11 +11,11 @@ This reporting tool makes use of views that must be created before running the s
 
 $psql -d news
 
-After connecting run the following commands in order:
-=> create view author_join_articles as select authors.name, articles.title, articles.slug from authors, articles where authors.id = articles.author;
-=>create view path_aggregate as select path, count(*) as views from log group by path order by views desc;
-=>create view error_days as select count(*) as errors, to_char(time, 'YYYY-MM-DD') as date from log where status != '200 OK' group by date;
-=>create view total_days as select count(*) as requests, to_char(time, 'YYYY-MM-DD') as date from log group by date;
-=>create view error_percentage as select error_days.date, (cast(error_days.errors as decimal)/total_days.requests)*100 as error_percentage from error_days, total_days where error_days.date = total_days.date;
+After connecting run the following commands in order:<br>
+=> create view author_join_articles as select authors.name, articles.title, articles.slug from authors, articles where authors.id = articles.author;<br>
+=>create view path_aggregate as select path, count(*) as views from log group by path order by views desc;<br>
+=>create view error_days as select count(*) as errors, to_char(time, 'YYYY-MM-DD') as date from log where status != '200 OK' group by date;<br>
+=>create view total_days as select count(*) as requests, to_char(time, 'YYYY-MM-DD') as date from log group by date;<br>
+=>create view error_percentage as select error_days.date, (cast(error_days.errors as decimal)/total_days.requests)*100 as error_percentage from error_days, total_days where error_days.date = total_days.date;<br>
 
 Disconnect from the database and run the source file from the command line using python news.py or python3 news.py
