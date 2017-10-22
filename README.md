@@ -1,9 +1,7 @@
-LOGS ANALYSIS
-
+# Logs-Analysis
+<b>LOGS ANALYSIS</b><br><br>
 Logs Analysis a reporting tool for analysing the visitor activity on a newspaper website. The backend server database for the website creates a log each time a visitor tries to access a path on the server. Running this source file will analyse these logs and visitor trends and produce a report for the most popular articles, authors as well as an error log.
-
- USAGE
-
+<br><br><b>USAGE</b><br><br>
 In order to use this tool, the user must be running PostgreSQL on a Linux Based Virtual Machine such as Virtual Box. This tool can only be used with python 3.
 
 After booting and logging into the Virtual Machine, place the source file, news.py and the newsdata.sql file inside the shared directory. Create and populate the database by running the SQL commands inside the newsdata.sql file.
