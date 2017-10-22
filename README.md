@@ -16,6 +16,6 @@ After connecting run the following commands in order:<br>
 =>create view path_aggregate as select path, count(*) as views from log group by path order by views desc;<br>
 =>create view error_days as select date(time), count(*) as error from log where status != '200 OK' group by date; <br>
 =>create view total_days as select count(*) as requests, date(time) from log group by date;<br>
-=>create view error_percentage as select to_char(error_days.date, 'FMMonth FMDD, YYYY'), (cast(error_days.error as decimal)/total_days.requests)*100 as error_percentage from error_days, total_days where error_days.date = total_days.date;<br>
+=>create view error_percentage as select to_char(error_days.date, 'FMMonth FMDD, YYYY') as date, (cast(error_days.error as decimal)/total_days.requests)*100 as error_percentage from error_days, total_days where error_days.date = total_days.date;<br>
 
 Disconnect from the database and run the source file from the command line using python news.py or python3 news.py
