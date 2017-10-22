@@ -4,13 +4,13 @@ Logs Analysis a reporting tool for analysing the visitor activity on a newspaper
 ## USAGE
 In order to use this tool, the user must be running PostgreSQL on a Linux Based Virtual Machine such as Virtual Box. This tool can only be used with python 3.
 
-After booting and logging into the Virtual Machine, place the source file, news.py and the newsdata.sql file inside the shared directory. Create and populate the database by running the SQL commands inside the newsdata.sql file.
+After booting and logging into the Virtual Machine, place the source file, news.py and the newsdata.sql file inside the shared directory. Create and populate the database by running the SQL commands inside the newsdata.sql file using the command line.
 
 ```
 $psql -d news -f newsdata.sql.
 ```
 
-This reporting tool makes use of views that must be created before running the source file. Using the command line, cd into the VM shared directory and connect to the news database using the command:
+This reporting tool makes use of views that must be created before running the source file. Keep the connection from the previous step, otherwise if disconnected cd into the VM shared directory and connect to the news database using the command:
 
 ```
 $psql -d news
@@ -38,6 +38,10 @@ create view error_percentage as select to_char(error_days.date, 'FMMonth FMDD, Y
 ```
 
 Disconnect from the database and run the source file from the command line using
-```python news.py ```
-
-``` python3 news.py ```
+```
+python news.py
+```
+or
+```
+python3 news.py
+```
