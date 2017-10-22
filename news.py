@@ -68,19 +68,9 @@ def main():
                 print ("\nError prone days: ")
                 error = get_error_dates()
                 # loop through each row
-                for row in error:
-                                date = row[0]
-                                # convert the date string
-                                # as a datetime object
-                                date_obj = datetime.strptime(date, '%Y-%m-%d')
-                                # format the datetime object
-                                # appropriately e.g October 21, 2017
-                                fdate = date_obj.strftime('%B %d, %Y')
-                                percent = row[1]
-                                # round off error percentage
-                                # to 2 decimal places
-                                percent = "{0:.2f}".format(percent)
-                                r = "%s - %s %% errors" % (fdate, percent)
+                for date, error_percentage in error:
+                                error = "{0:.2f}".format(error_percentage)
+                                r = "{} - {} % errors".format(date, error)
                                 print(r)
 
 if __name__ == '__main__':
