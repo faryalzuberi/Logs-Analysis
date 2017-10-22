@@ -49,7 +49,7 @@ def get_error_dates():
 
 def main():
                 # print most popular articles
-                print ("\nMost popular articles: ")
+                print("\nMost popular articles: ")
                 articles = get_popular_articles()
                 # loop through each row in result
                 for article, views in articles:
@@ -57,7 +57,7 @@ def main():
                                 print(r)
 
                 # print most popular authors
-                print ("\nMost popular authors: ")
+                print("\nMost popular authors: ")
                 authors = get_popular_authors()
                 # loop through each row
                 for author, views in authors:
@@ -65,13 +65,14 @@ def main():
                                 print(r)
 
                 # print error prone days
-                print ("\nError prone days: ")
+                print("\nError prone days: ")
                 error = get_error_dates()
                 # loop through each row
                 for date, error_percentage in error:
                                 error = "{0:.2f}".format(error_percentage)
                                 r = "{} - {} % errors".format(date, error)
                                 print(r)
+
 
 if __name__ == '__main__':
                 main()
